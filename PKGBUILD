@@ -80,7 +80,7 @@ package() {
   install -D -m644 $srcdir/modules.conf etc/modules-load.d/modules.conf
 
   # Create the manjaro-release file
-  echo "Manjaro Linux" > $pkgdir/etc/manjaro-release
+  echo "Cleanjaro Linux" > $pkgdir/etc/cleanjaro-release
 	ln -s manjaro-release $pkgdir/etc/arch-release
   install -m755 "$srcdir"/locale.sh etc/profile.d/locale.sh
   install -Dm644 "$srcdir"/os-release usr/lib/os-release
