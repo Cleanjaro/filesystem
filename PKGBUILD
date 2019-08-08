@@ -1,4 +1,5 @@
-# Maintainer: Philip Müller <philm@manjaro.org>
+# Maintainer: David Spink <yorper_protonmail.com>
+# Contributor: Philip Müller <philm@manjaro.org>
 # Contributor: Sébastien Luttringer
 # Contributor: Tom Gundersen <teg@jklm.no>
 
