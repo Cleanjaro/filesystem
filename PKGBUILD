@@ -5,11 +5,11 @@
 
 pkgname=filesystem
 pkgver=2019.8
-pkgrel=1
+pkgrel=1.1
 pkgdesc='Base Cleanjaro Linux files'
 arch=('x86_64')
 license=('GPL')
-url='https://'
+url='https://github.com/Yorper/cleanjaro-filesystem'
 groups=('base')
 depends=('iana-etc')
 backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
@@ -82,6 +82,7 @@ package() {
   # Create the manjaro-release file
   echo "Cleanjaro Linux" > $pkgdir/etc/cleanjaro-release
 	ln -s cleanjaro-release $pkgdir/etc/arch-release
+	ln -s cleanjaro-release $pkgdir/etc/manjaro-release
   install -m755 "$srcdir"/locale.sh etc/profile.d/locale.sh
   install -Dm644 "$srcdir"/os-release usr/lib/os-release
 
