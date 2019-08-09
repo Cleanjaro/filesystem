@@ -81,7 +81,7 @@ package() {
 
   # Create the manjaro-release file
   echo "Cleanjaro Linux" > $pkgdir/etc/cleanjaro-release
-	ln -s manjaro-release $pkgdir/etc/arch-release
+	ln -s cleanjaro-release $pkgdir/etc/arch-release
   install -m755 "$srcdir"/locale.sh etc/profile.d/locale.sh
   install -Dm644 "$srcdir"/os-release usr/lib/os-release
 
