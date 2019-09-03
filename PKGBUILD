@@ -4,12 +4,12 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2019.8
-pkgrel=1.1
+pkgver=2019.9
+pkgrel=1
 pkgdesc='Base Cleanjaro Linux files'
 arch=('x86_64')
 license=('GPL')
-url='https://github.com/Yorper/cleanjaro-filesystem'
+url='http://cleanjaro.org'
 groups=('base')
 depends=('iana-etc')
 backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
@@ -17,8 +17,8 @@ backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
         'etc/motd' 'etc/nsswitch.conf' 'etc/passwd' 'etc/profile' 'etc/resolv.conf'
         'etc/securetty' 'etc/shadow' 'etc/shells' 'etc/vconsole.conf'
         'usr/lib/os-release' 'etc/modules-load.d/modules.conf')
-source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
-        'hostname' 'issue' 'ld.so.conf' 'locale.conf' 'locale.sh' 'modules.conf' 'motd'
+source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'home-local-bin.sh' 'host.conf'
+        'hosts' 'hostname' 'issue' 'ld.so.conf' 'locale.conf' 'locale.sh' 'modules.conf' 'motd'
         'nsswitch.conf' 'os-release' 'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow'
         'shells' 'sysctl' 'sysusers' 'tmpfiles' 'vconsole.conf')
 sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
@@ -26,6 +26,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'e54626e74ed8fee4173b62a545ab1c3a3a069e4217a0ee8fc398d9933e9c1696'
             '244f0718ee2a9d6862ae59d6c18c1dd1568651eada91a704574fa527fbac2b3a'
             '90d879374f77bac47f132164c1e7fc4892e994ff1d1ac376efa0c1c26ea37273'
+            'e6653e2b468339323f47d760bff67d91b2ce89437968d6debd9c86a97fa0fa79'
             '4d7b647169063dfedbff5e1e22cee77bd1a4183dbcfd5e802e68939da4bbf733'
             'd9cd8a77d9e0aa5e90d7f4ed74c8745c17b525e720e28e4c44364150003c35f9'
             'c6418587f646523343ace3990f01b527cdc8dfd89598a13a6fd8cd6d5750b18e'
@@ -79,10 +80,11 @@ package() {
   # add modules-load.d/modules
   install -D -m644 $srcdir/modules.conf etc/modules-load.d/modules.conf
 
-  # Create the manjaro-release file
+  # Create the cleanjaro-release file
   echo "Cleanjaro Linux" > $pkgdir/etc/cleanjaro-release
 	ln -s cleanjaro-release $pkgdir/etc/arch-release
 	ln -s cleanjaro-release $pkgdir/etc/manjaro-release
+  install "$srcdir"/home-local-bin.sh etc/profile.d/home-local-bin.sh
   install -m755 "$srcdir"/locale.sh etc/profile.d/locale.sh
   install -Dm644 "$srcdir"/os-release usr/lib/os-release
 
@@ -138,3 +140,4 @@ package() {
 }
 
 # vim:set ts=2 sw=2 et:
+
