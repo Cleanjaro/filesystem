@@ -4,7 +4,7 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2019.9
+pkgver=2019.11
 pkgrel=1
 pkgdesc='Base Cleanjaro Linux files'
 arch=('x86_64')
